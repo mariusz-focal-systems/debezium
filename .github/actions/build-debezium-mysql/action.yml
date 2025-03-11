@@ -33,6 +33,7 @@ runs:
         ./mvnw clean install -B -pl debezium-connector-mysql -am
         -P${{ inputs.profile }}
         -DskipTests
+        -DskipITs
         -Dcheckstyle.skip=true
         -Dformat.skip=true
         -Dversion.mysql.server=${{ inputs.version-mysql-server }}
