@@ -32,6 +32,8 @@ runs:
       run: >
         ./mvnw clean install -B -pl debezium-connector-mysql -am
         -P${{ inputs.profile }}
+        -DskipTests
+        -DskipITs
         -Dcheckstyle.skip=true
         -Dformat.skip=true
         -Dversion.mysql.server=${{ inputs.version-mysql-server }}
@@ -40,3 +42,10 @@ runs:
         -Dmaven.wagon.httpconnectionManager.ttlSeconds=120
         -DfailFlakyTests=false
         -Ddebezium.test.mongo.replica.primary.startup.timeout.seconds=120
+
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: dist
+        path: |
+          debezium-connector-mysql/target

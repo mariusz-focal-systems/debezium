@@ -20,7 +20,7 @@ import io.debezium.util.Strings;
 public class MySqlConnectionConfiguration extends BinlogConnectionConfiguration {
 
     private static final String JDBC_PROPERTY_CONNECTION_TIME_ZONE = "connectionTimeZone";
-    public static final String URL_PATTERN = "${protocol}://${hostname}:${port}/?useInformationSchema=true&nullCatalogMeansCurrent=false&useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&connectTimeout=${connectTimeout}";
+    public static final String URL_PATTERN = "${protocol}://${hostname}:${port}/?useInformationSchema=true&nullCatalogMeansCurrent=false&useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&connectTimeout=${connectTimeout}&sessionVariables=MAX_EXECUTION_TIME=0";
 
     public MySqlConnectionConfiguration(Configuration config) {
         super(config);
